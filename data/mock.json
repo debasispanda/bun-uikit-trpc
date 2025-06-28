@@ -1,0 +1,25 @@
+[
+  {
+    "id": "d5d7d880-de40-4dca-8c87-228488c6f92e",
+    "title": "Learn React",
+    "content": "I need to learn react and develop a note application.",
+    "color": "#01ADEF"
+  },
+  {
+    "id": "fac638e5-5497-4363-848c-8168b4b477d0",
+    "title": "Pay credit card bill",
+    "color": "#F6941E"
+  },
+  {
+    "id": "bbda76b7-1cf4-4996-a98a-1452df728103",
+    "title": "BUN",
+    "content": "Bun is a fast JavaScript runtime",
+    "color": "#414141"
+  },
+  {
+    "id": "19b80a9c-04b8-4b3e-b558-426b844448ae",
+    "title": "TRPC",
+    "content": "tRPC is for full-stack TypeScript developers. Type errors with your API contracts will be caught at build time",
+    "color": "#477DBD"
+  }
+]
