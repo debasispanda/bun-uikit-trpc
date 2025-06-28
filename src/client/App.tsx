@@ -1,12 +1,12 @@
-import { HvProvider } from '@hitachivantara/uikit-react-core'
-import { Note } from './components/Note/Note'
+import { NoteBoard } from "./components/NoteBoard/NoteBoard";
+import { GlobalProvider } from "./provider/GlobalProvider";
 
 function App() {
   return (
-    <HvProvider>
-      <Note />
-    </HvProvider>
-  )
+    <GlobalProvider>
+      <NoteBoard />
+    </GlobalProvider>
+  );
 }
 
-export default App
+export default App;
