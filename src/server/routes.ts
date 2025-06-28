@@ -1,6 +1,6 @@
 import { EventEmitter, on } from "events";
 import { router, publicProcedure } from "./trpc";
-import { db } from "./db";
+import { findAll, insertOne, updateOne, deleteOne } from "./db";
 import { z } from "zod";
 import { NoteMutationType } from "@/common/constants/note-mutation-type";
 
@@ -14,12 +14,12 @@ const createOrUpdateBody = z.object({
 
 export const appRouter = router({
   noteList: publicProcedure.query(() => {
-    return db.note.findMany();
+    return findAll();
   }),
   noteCreate: publicProcedure
     .input(createOrUpdateBody)
     .mutation(({ input }) => {
-      const newNote = db.note.insert(input);
+      const newNote = insertOne(input);
       ee.emit("event", { action: NoteMutationType.CREATE, data: newNote });
       return newNote;
     }),
@@ -31,12 +31,12 @@ export const appRouter = router({
       })
     )
     .mutation(({ input }) => {
-      const updatedNote = db.note.update(input.id, input.data);
+      const updatedNote = updateOne(input.id, input.data);
       ee.emit("event", { action: NoteMutationType.UPDATE, data: updatedNote });
       return updatedNote;
     }),
   noteDelete: publicProcedure.input(z.string()).mutation(({ input }) => {
-    db.note.delete(input);
+    deleteOne(input);
     ee.emit("event", { action: NoteMutationType.DELETE, data: { id: input } });
   }),
   noteSubscription: publicProcedure.subscription(async function* (opts) {

@@ -4,18 +4,32 @@
 
 1. Install Bun
 
-```
-bun install
-```
+   ```
+   bun install
+   ```
 
 2. Start bun dev server
 
-```
-bun dev:server
-```
+   ```
+   bun dev:server
+   ```
 
-3. Start bun dev client
+3. Run migration
 
-```
-bun dev:client
-```
+   ```
+   bun migrate up
+   ```
+
+   This will setup the database and insert few mock data.
+
+   > If you don't want mock data, then run the down migration.
+
+   ```
+   bun migrate down
+   ```
+
+4. Start bun dev client
+
+   ```
+   bun dev:client
+   ```
